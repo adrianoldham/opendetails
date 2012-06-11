@@ -21,7 +21,6 @@ function OpenDetails(selector, options) {
 
     var defaults = {
         selector: "summary",
-        openClass: "open",
         disclosureWidgetClass: "disclosure-widget",
         disclosureEvent: "click"
     };
@@ -42,9 +41,9 @@ function OpenDetails(selector, options) {
             // Details element
             var isOpen = details.hasAttribute("open");
             if(isOpen) {
-                details.removeClassName(options.openClass).removeAttribute("open");
+                details.removeAttribute("open");
             } else {
-                details.addClassName(options.openClass).writeAttribute("open", "true");
+                details.writeAttribute("open", "true");
             }
 
             // Sibling elements
