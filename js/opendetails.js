@@ -6,7 +6,7 @@ Initialise with:
     OpenDetails();
     
     CUSTOM OPTIONS
-    OpenDetails($$("summary"),{
+    OpenDetails("summary",{
         openClass: "open",
         disclosureWidgetClass: "disclosure-widget",
         disclosureEvent: "click"
@@ -21,6 +21,7 @@ function OpenDetails(selector, options) {
 
     var defaults = {
         selector: "summary",
+        openClass: "open",
         disclosureWidgetClass: "disclosure-widget",
         disclosureEvent: "click"
     };
@@ -41,9 +42,9 @@ function OpenDetails(selector, options) {
             // Details element
             var isOpen = details.hasAttribute("open");
             if(isOpen) {
-                details.removeAttribute("open");
+                details.removeClassName(options.openClass).removeAttribute("open");
             } else {
-                details.writeAttribute("open", "true");
+                details.addClassName(options.openClass).writeAttribute("open", "true");
             }
 
             // Sibling elements
