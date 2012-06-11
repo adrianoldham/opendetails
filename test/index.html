@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>OpenDetails Demo</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" charset="utf-8" src="../lib/prototype.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../lib/scriptaculous.js?load=effects"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/opendetails.js"></script>
+    <style type="text/css">
+    
+      body {
+        font-family: Arial;
+        font-size: 0.75em;
+      }
+    
+      .home {
+        background-color: #eee;
+        border: 0.083em solid #ccc;
+        padding: 1em;
+        position: relative;
+      }
+      
+      h1 {
+        color: gray;
+        font-size: 2em;
+        margin: 0;
+        margin-bottom: 0.5em;
+      }
+      
+      p {
+        margin: 1em 0;
+      }
+      
+      .note {
+        color: gray;
+        font-size: 0.9em;
+      }
+    
+      /* @group details */
+      
+      details[open] summary {
+          margin: 0 0 1em 0;
+      }
+      
+      .disclosure-widget {
+          padding-left: 1.5em;
+          position: relative;
+          display: block;
+      }
+      
+      .disclosure-widget:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 1.25em;
+          height: 1.25em;
+          margin: 0 0.5em 0 0;
+          background: url(images/widgets/arrow.png) no-repeat 0 0;
+          -webkit-background-size: 1.2em;
+          -moz-background-size: 1.2em;
+          background-size: 1.2em;
+      }
+      
+      .open .disclosure-widget:before {
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          -o-transform: rotate(90deg);
+          transform: rotate(90deg);
+      }
+      
+      /* @end */
+    
+    </style>
+  </head>
+  <body>
+    <div class="home">
+      <h1>OpenDetails</h1>
+      <p>Simulate a new html element behaviour not yet found in any browser except Chrome.</p>
+      <p>Sed in velit quis mauris pharetra viverra id quis justo. Donec at ipsum sed purus commodo tristique et vel ante. Phasellus vehicula nibh et diam elementum mollis. Ut vulputate mattis neque, sit amet tristique ante fermentum at. Nam eget nulla enim. In tempus tempor congue. Nulla ante metus, scelerisque quis luctus ac, egestas commodo ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse potenti. Curabitur metus tortor, venenatis ac consectetur ut, accumsan eu arcu. Ut et enim nec nulla rutrum suscipit.</p>
+      <details>
+        <summary>More details</summary>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus facilisis luctus neque. Mauris sit amet felis risus. In viverra mollis turpis, ut varius turpis scelerisque ac. Cras aliquam, eros a dignissim mattis, dolor mi hendrerit mi, ut consequat lorem risus vel arcu. Sed rhoncus auctor nibh, vel suscipit lorem rhoncus eget. Duis semper dui vitae dolor adipiscing sed ultrices mauris hendrerit. Morbi molestie, leo sed ullamcorper ornare, elit ante vehicula massa, et luctus mi massa pulvinar est. Nullam ultricies eleifend quam vitae consequat. Vestibulum mollis consectetur interdum. Donec ut sem mi. Nulla vel risus justo, eu rutrum quam.</p>
+        <p>Phasellus fermentum justo id ligula faucibus hendrerit. Nulla pretium, sapien ut consequat rutrum, nunc lacus sollicitudin leo, a lacinia dolor enim eget diam. Pellentesque tempus volutpat purus in porttitor. Phasellus placerat dolor sed tortor dictum sed vehicula lectus rutrum. Nam nisl neque, lacinia sed dignissim et, pretium non massa. Nam sollicitudin felis sit amet purus iaculis at rutrum nunc malesuada. Curabitur mauris risus, congue vel ornare eu, posuere nec dolor.</p>
+      </details>
+      <p class="note">Note: Click on "More details" to expand</p>
+    </div>
+    <script type="text/javascript">
+      var openDetails = OpenDetails();
+    </script>
+  </body>
+</html>
