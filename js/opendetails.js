@@ -28,7 +28,7 @@ function OpenDetails(selector, options) {
     options = Object.extend(Object.extend({}, defaults), options || { });
 
     // Toggle collapsible DETAILS element
-    selector = selector ? selector : $$("summary");
+    selector = $$(selector ? selector : "summary");
     selector.each(function(summary) {
         var details = summary.parentNode;
         var siblings = summary.siblings();
