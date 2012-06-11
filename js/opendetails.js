@@ -20,6 +20,7 @@ function OpenDetails(selector, options) {
     if(isChrome) return;
 
     var defaults = {
+        selector: "summary",
         openClass: "open",
         disclosureWidgetClass: "disclosure-widget",
         disclosureEvent: "click"
@@ -28,7 +29,7 @@ function OpenDetails(selector, options) {
     options = Object.extend(Object.extend({}, defaults), options || { });
 
     // Toggle collapsible DETAILS element
-    selector = $$(selector ? selector : "summary");
+    selector = $$(selector ? selector : options.selector);
     selector.each(function(summary) {
         var details = summary.parentNode;
         var siblings = summary.siblings();
