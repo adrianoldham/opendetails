@@ -18,41 +18,33 @@ var OpenDetails = Class.create({
     },
 
     setup: function(element) {
+        // Create a new container
+        var container = new Element("div").hide();
+
+        // Add siblings to the container
         var siblings = element.siblings();
         siblings.each(function(sibling) {
-            sibling.hide();
+            container.insert({ top: sibling });
         });
-        this.apply(element);
+        element.insert({ after: container });
+        this.apply(element, container);
     },
 
-    apply: function(element) {
+    apply: function(element, container) {
         element.observe(this.options.disclosureEvent,
-            this.toggle.bindAsEventListener(this, element)
+            this.toggle.bindAsEventListener(this, element, container)
         ).addClassName(this.options.disclosureWidgetClass);
     },
 
-    toggle: function(event, element) {
+    toggle: function(event, element, container) {
         var parent = element.parentNode;
-        var siblings = element.siblings();
-
-        // Parent element
         var isOpen = parent.hasAttribute("open");
         if (isOpen) {
             parent.removeClassName(this.options.openClass).removeAttribute("open");
+            container.hide();
         } else {
             parent.addClassName(this.options.openClass).writeAttribute("open", "true");
+            container.show();
         }
-
-        // Sibling elements
-        siblings.each(function(sibling) {
-            var isHidden = sibling.getStyle('display') == "none";
-            if (isHidden) {
-                //show
-                sibling.show();
-            } else {
-                //hide
-                sibling.hide();
-            }
-        });
     }
 });
