@@ -18,10 +18,10 @@ var OpenDetails = Class.create({
     },
 
     setup: function(element) {
-        this.siblings = element.siblings();
-        this.siblings.each(function(sibling) {
-            sibling.writeAttribute("hidden", "true");
-        }.bind(this));
+        var siblings = element.siblings();
+        siblings.each(function(sibling) {
+            sibling.hide();
+        });
         this.apply(element);
     },
 
@@ -45,13 +45,13 @@ var OpenDetails = Class.create({
 
         // Sibling elements
         siblings.each(function(sibling) {
-            var isHidden = sibling.hasAttribute("hidden");
+            var isHidden = sibling.getStyle('display') == "none";
             if (isHidden) {
                 //show
-                sibling.removeAttribute("hidden");
+                sibling.show();
             } else {
                 //hide
-                sibling.writeAttribute("hidden", "true");
+                sibling.hide();
             }
         });
     }
