@@ -33,7 +33,7 @@ var OpenDetails = Class.create({
     apply: function(element, container) {
         element.observe(this.options.disclosureEvent,
             this.toggle.bindAsEventListener(this, element, container)
-        ).addClassName(this.options.disclosureWidgetClass);
+        ).addClassName(this.options.disclosureWidgetClass).setStyle({ cursor: "pointer" });
     },
 
     toggle: function(event, element, container) {
